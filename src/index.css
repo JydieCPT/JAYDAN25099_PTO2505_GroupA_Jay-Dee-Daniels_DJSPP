@@ -7,3 +7,27 @@ body {
   margin: 0;
   background: #f9f9f9;
 }
+/* Default light theme */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #f8f8f8;
+}
+
+/* Dark theme */
+.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --card-bg: #2a2a2a;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: var(--card-bg);
+  transition: background-color 0.3s;
+}
