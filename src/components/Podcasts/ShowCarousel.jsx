@@ -3,26 +3,47 @@ import { PodcastContext } from "../../context/PodcastContext";
 import { Link } from "react-router-dom";
 import styles from "./ShowCarousel.module.css";
 
+/**
+ * Sliding carousel displaying recommended shows.
+ * Shows image, title, and genre tags for user context.
+ */
 export default function ShowCarousel() {
   const { podcasts } = useContext(PodcastContext);
 
-  // show only 10 random recommended items
-  const recommended = podcasts?.slice(0, 10) || [];
-
-  if (!recommended.length) return null;
+  if (!podcasts || podcasts.length === 0) return null;
 
   return (
-    <div className={styles.carouselWrapper}>
-      <h2 className={styles.title}>Recommended Shows</h2>
+    <section className={styles.carouselSection}>
+      <h2 className={styles.heading}>Recommended Shows</h2>
 
-      <div className={styles.carousel}>
-        {recommended.map((show) => (
-          <Link key={show.id} to={`/show/${show.id}`} className={styles.card}>
-            <img className={styles.image} src={show.image} alt={show.title} />
-            <p className={styles.name}>{show.title}</p>
-          </Link>
-        ))}
+      <div className={styles.carouselContainer}>
+        <div className={styles.carouselTrack}>
+          {podcasts.map((show) => (
+            <div className={styles.carouselItem} key={show.id}>
+              <Link to={`/show/${show.id}`} className={styles.card}>
+                <img
+                  src={show.image}
+                  alt={show.title}
+                  className={styles.image}
+                />
+
+                <div className={styles.info}>
+                  <h3 className={styles.title}>{show.title}</h3>
+
+                  <div className={styles.genres}>
+                    {show.genres &&
+                      show.genres.map((genre, idx) => (
+                        <span className={styles.genreTag} key={idx}>
+                          {genre}
+                        </span>
+                      ))}
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
