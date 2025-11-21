@@ -1,5 +1,11 @@
 import { createContext, useState, useEffect } from "react";
 
+/**
+ * ThemeContext provides global light/dark theme state for the app.
+ * It loads the user's saved theme from localStorage, applies it to the
+ * document, and exposes a toggle function to switch themes.
+ */
+
 export const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
