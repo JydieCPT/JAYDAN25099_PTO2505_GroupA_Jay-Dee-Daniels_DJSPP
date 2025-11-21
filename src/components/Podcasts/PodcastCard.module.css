@@ -1,10 +1,20 @@
+/* ---- Tag Variables ---- */
+:root {
+  --tag-bg: #eee;          /* light */
+}
+
+.dark {
+  --tag-bg: #3a3a3a;       /* dark */
+}
+
+/* ---- Card Styles ---- */
 .card {
-  background: white;
+  background: var(--card-bg);
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background-color 0.3s, color 0.3s;
 }
 
 .card:hover {
@@ -18,26 +28,29 @@
 
 .card h3 {
   margin: 0.5rem 0;
+  color: var(--text-color);
 }
 
 .card p {
-  margin: 0px;
+  margin: 0;
   font-size: 0.8rem;
   color: var(--grey-text);
 }
 
+/* ---- Tags ---- */
 .tags {
   margin: 0.5rem 0;
 }
 
 .tag {
-  background: #eee;
+  background: var(--tag-bg);
   padding: 0.3rem 0.6rem;
   margin-right: 0.5rem;
   margin-top: 0.5rem;
   border-radius: 4px;
   display: inline-block;
   font-size: 0.8rem;
+  color: var(--text-color);
 }
 
 .updatedText {
