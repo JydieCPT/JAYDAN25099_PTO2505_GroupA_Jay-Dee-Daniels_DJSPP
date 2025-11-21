@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import styles from "./Header.module.css";
 
+/**
+ * Header component that displays the app title and a theme toggle button.
+ * Uses ThemeContext to switch between light and dark mode, and provides
+ * navigation back to the home page.
+ */
+
 export default function Header() {
-  // ✅ Destructure theme and toggleTheme from ThemeContext
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
