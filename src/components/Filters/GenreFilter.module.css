@@ -1,6 +1,17 @@
+/* Base styles */
 .select {
   padding: 0.5rem 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color, #ccc);
   border-radius: 0.75rem;
   font-size: 1rem;
+  background-color: var(--bg-color, #fff);
+  color: var(--text-color, #000);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Dark mode overrides */
+.dark .select {
+  --border-color: #555;
+  --bg-color: #1f1f1f;
+  --text-color: #f0f0f0;
 }
