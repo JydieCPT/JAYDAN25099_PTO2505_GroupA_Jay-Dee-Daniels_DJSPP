@@ -1,84 +1,58 @@
-.carouselContainer {
+.carouselSection {
   margin: 2rem 0;
-  overflow-x: auto;
-  padding-bottom: 10px;
+}
+
+.heading {
+  margin-bottom: 1rem;
+}
+
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carouselViewport {
+  overflow: hidden;
+  width: 100%;
 }
 
 .carouselTrack {
   display: flex;
-  gap: 1rem;
+  transition: transform 0.4s ease;
 }
 
 .carouselItem {
-  min-width: 200px;
-  flex: 0 0 auto;
+  width: 200px;
+  margin-right: 20px;
+  flex-shrink: 0;
 }
 
-/* CARD */
 .card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 300px;
-
-  /* ✨ Uses theme variables now */
-  background: var(--card-bg);
-  color: var(--text-color);
-
-  border-radius: 10px;
-  overflow: hidden;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-
-  transition: transform 0.2s ease-in-out,
-              background-color 0.3s,
-              color 0.3s;
+  color: inherit;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-}
-
-/* IMAGE */
-.image {
-  height: 65%;
+.card img {
   width: 100%;
-  object-fit: cover;
+  border-radius: 8px;
 }
 
-/* INFO */
-.info {
-  padding: 0.75rem;
-  height: 35%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.title {
-  font-size: 1rem;
-  font-weight: 600;
-
-  /* ✨ Theme-aware */
-  color: var(--text-color);
-
-  margin-bottom: 5px;
-  line-height: 1.3;
-}
-
-/* GENRE TAGS */
-.genres {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.genreTag {
-  /* Theme-compatible tag */
-  background: #ff4655;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
+.prevBtn,
+.nextBtn {
+  background: rgba(0, 0, 0, 0.4);
   color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  z-index: 2;
 }
 
+.prevBtn {
+  margin-right: 0.5rem;
+}
+
+.nextBtn {
+  margin-left: 0.5rem;
+}
