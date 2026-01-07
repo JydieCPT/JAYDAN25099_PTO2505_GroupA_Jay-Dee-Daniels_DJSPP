@@ -1,31 +1,35 @@
 import { createContext, useState, useEffect } from "react";
 
-/**
- * ThemeContext provides global light/dark theme state for the app.
- * It loads the user's saved theme from localStorage, applies it to the
- * document, and exposes a toggle function to switch themes.
- */
-
-export const ThemeContext = createContext();
+export const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
 
-  // Load theme from localStorage
+  // Read saved theme AFTER component mounts
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) setTheme(savedTheme);
+    if (typeof window === "undefined") return;
+
+    const savedTheme = window.localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      setTheme("dark");
+    }
   }, []);
 
-  // Update localStorage and HTML class
+  // Apply theme & save it
   useEffect(() => {
-    document.documentElement.className = theme;
-    localStorage.setItem("theme", theme);
+    if (typeof window === "undefined") return;
+
+    const root = window.document.documentElement;
+
+    root.classList.remove("light", "dark");
+    root.classList.add(theme);
+
+    window.localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  function toggleTheme() {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
