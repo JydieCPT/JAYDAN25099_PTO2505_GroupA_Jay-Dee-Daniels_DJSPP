@@ -2,11 +2,23 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background: white;
+  background-color: white;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .appHeader a {
   text-decoration: none;
   color: black;
+  transition: color 0.3s ease;
+}
+
+/* 🌙 Dark mode override — REQUIRED for CSS Modules */
+:global(html.dark) .appHeader {
+  background-color: #121212;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+:global(html.dark) .appHeader a {
+  color: #f5f5f5;
 }
