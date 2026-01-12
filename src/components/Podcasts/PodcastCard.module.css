@@ -57,3 +57,26 @@
   font-size: 0.8rem;
   color: var(--grey-text);
 }
+
+.favoriteBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: gold;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure card can position the star */
+.card {
+  position: relative;
+}
