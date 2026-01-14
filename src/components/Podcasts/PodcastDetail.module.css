@@ -218,3 +218,67 @@ strong {
     text-overflow: ellipsis;
   }
 }
+
+/* =========================
+   DARK MODE STYLES (MATCH PODCAST CARD)
+   ========================= */
+
+:global(html.dark) .container {
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+:global(html.dark) .header {
+  background: #111827;
+  box-shadow: none;
+}
+
+:global(html.dark) .backButton {
+  color: #e5e7eb;
+}
+
+:global(html.dark) .backButton:hover {
+  color: #9ca3af; /* dark grey */
+}
+
+:global(html.dark) .description {
+  color: #9ca3af;
+}
+
+:global(html.dark) .metaInfo p {
+  color: #9ca3af;
+}
+
+:global(html.dark) .genreBadge {
+  background-color: #070707;
+  color: #e5e7eb;
+}
+
+:global(html.dark) .seasonDetails {
+  background: #111827;
+  box-shadow: none;
+}
+
+:global(html.dark) .dropdown {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #1f2937;
+}
+
+:global(html.dark) .episodeCard {
+  background: #111827;
+  border-color: #1f2937;
+}
+
+:global(html.dark) .episodeCard:hover {
+  background: #111827;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+:global(html.dark) .episodeDesc {
+  color: #9ca3af;
+}
+
+:global(html.dark) .releaseInfo {
+  color: #9ca3af;
+}
